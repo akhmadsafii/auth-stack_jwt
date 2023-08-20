@@ -15,7 +15,7 @@
                     <div class="card-header">{{ __('Login') }}</div>
 
                     <div class="card-body">
-                        <form id="loginForm" method="POST">
+                        <form id="loginForm" method="POST" action="{{ route('verify') }}">
                             @csrf
                             <div class="form-group">
                                 <label for="role">Login As:</label>
@@ -42,26 +42,27 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $('#loginForm').submit(function(event) {
-                event.preventDefault();
-                var formData = $(this).serialize();
-                var role = $('#role').val();
-                var url = role === 'admin' ? '/api/admin/verify' : '/api/user/verify';
+        // $(document).ready(function() {
+        //     $('#loginForm').submit(function(event) {
+        //         event.preventDefault();
+        //         var formData = $(this).serialize();
+        //         var role = $('#role').val();
+        //         var url = role === 'admin' ? '/api/admin/verify' : '/api/user/verify';
 
-                $.post(url, formData)
-                    .done(function(data) {
-                        if (role === 'admin' || role === 'user') {
-                            localStorage.setItem('token', data.token);
-                            window.location.href = '/products';
-                        }
-                        // Handle API response if needed
-                    })
-                    .fail(function(error) {
-                        alert('Login failed. Please check your credentials.');
-                    });
-            });
-        });
+        //         $.post(url, formData)
+        //             .done(function(data) {
+        //                 if (role === 'admin' || role === 'user') {
+        //                     localStorage.setItem('token', data.token);
+        // //                   console.log(localStorage.getItem('token'));
+        //                     window.location.href = '/products';
+        //                 }
+        //                 // Handle API response if needed
+        //             })
+        //             .fail(function(error) {
+        //                 alert('Login failed. Please check your credentials.');
+        //             });
+        //     });
+        // });
     </script>
 
 </body>

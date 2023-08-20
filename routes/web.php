@@ -26,9 +26,9 @@ Route::middleware('guest')->group(function () {
     });
 });
 
-Route::middleware('auth')->group(function () {
-    Route::prefix('products')->group(function () {
-        Route::get('/', [ProductController::class, 'index']);
+Route::middleware('auth.multiple:web-admin,web-user')->group(function () {
+    Route::prefix('products')->name('product.')->group(function () {
+        Route::get('/', [ProductController::class, 'index'])->name('list');
         Route::post('update', [ProductController::class, 'update']);
     });
 });

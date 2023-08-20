@@ -26,12 +26,21 @@ class AuthController extends Controller
         }
 
         $credentials = $request->only('email', 'password');
-        $token = Auth::guard($request->role)->attempt($credentials);
+        if (request()->is('api/*')) {
+            $token = Auth::guard($request->role)->attempt($credentials);
 
-        if (!$token) {
-            return response()->json(['error' => 'Invalid credentials'], 401);
+            if (!$token) {
+                return response()->json(['error' => 'Invalid credentials'], 401);
+            }
+
+            return response()->json(['token' => $token]);
+        } else {
+            $role = $request->role;
+            if (Auth::guard('web-' . $role)->attempt($credentials)) {
+                return redirect()->route('product.list');
+            } else {
+                return back()->withErrors(['email' => 'Invalid credentials']);
+            }
         }
-
-        return response()->json(['token' => $token]);
     }
 }
