@@ -16,20 +16,13 @@ Selamat datang di dokumentasi resmi Laravel JWT Authentication! Framework Larave
 Laravel JWT Authentication memungkinkan otentikasi berbasis token yang aman dan efisien. Setelah pengguna berhasil login, mereka akan menerima token unik yang dapat digunakan untuk mengakses sumber daya terproteksi.
 
 #### Manajemen Token yang Mudah
-Dengan Laravel JWT, Anda dapat dengan mudah mengelola token, termasuk pembuatan, perpanjangan masa aktif, dan pembatalan. Ini memberikan fleksibilitas penuh dalam mengontrol masa aktif token pengguna..
+Dengan Laravel JWT, Anda dapat dengan mudah mengelola token, termasuk pembuatan, perpanjangan masa aktif, dan pembatalan. Ini memberikan fleksibilitas penuh dalam mengontrol masa aktif token pengguna.
 
-## Contributing
+#### Proteksi Route
+Integrasi dengan Laravel memungkinkan Anda melindungi route tertentu dengan mudah menggunakan middleware otentikasi JWT. Ini memastikan bahwa hanya pengguna yang memiliki token yang valid yang dapat mengakses sumber daya terproteksi.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+#### Refresh Token Otomatis
+Fitur pembaharuan otomatis token memastikan bahwa pengguna dapat tetap terotentikasi tanpa perlu login ulang setiap saat. Ini meningkatkan pengalaman pengguna sambil tetap menjaga keamanan.
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+#### Penanganan Kesalahan yang Jelas
+Laravel JWT Authentication memberikan penanganan kesalahan yang jelas dan informatif, memudahkan pengembang untuk menangani masalah otentikasi dengan cepat dan efisien.
